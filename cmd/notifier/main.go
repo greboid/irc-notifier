@@ -9,6 +9,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/ergochat/irc-go/ircutils"
 	"github.com/greboid/irc-bot/v5/plugins"
 	"github.com/greboid/irc-bot/v5/rpc"
 	"github.com/greboid/irc/v4/logger"
@@ -21,6 +22,7 @@ var (
 	RPCToken       = flag.String("rpc-token", "", "gRPC authentication token")
 	Debug          = flag.Bool("debug", false, "Show debugging info")
 	HighlightWords = flag.String("highlight-words", "", "Comma separated highlighted words")
+	Network        = flag.String("network", "", "Network to show in title of push notification")
 	IglooPushToken = flag.String("igloo-token", "", "Igloo IRC Push Token - Found in client settings")
 	log            = logger.CreateLogger(*Debug)
 	helper         *plugins.PluginHelper
@@ -55,7 +57,7 @@ func main() {
 
 func (h *HighlightHandler) handleChannelMessage(message *rpc.ChannelMessage) {
 	if checkHighlight(message, h.Highlights) {
-		sendNofication("", message.Channel, message.Message, message.Source)
+		sendNofication(*Network, message.Channel, message.Message, ircutils.ParseUserhost(message.Source).Nick)
 	}
 }
 
