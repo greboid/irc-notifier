@@ -10,10 +10,11 @@ import (
 	"strings"
 
 	"github.com/ergochat/irc-go/ircutils"
+	"github.com/greboid/golog"
 	"github.com/greboid/irc-bot/v5/plugins"
 	"github.com/greboid/irc-bot/v5/rpc"
-	"github.com/greboid/irc/v4/logger"
 	"github.com/kouhin/envflag"
+	"go.uber.org/zap"
 )
 
 var (
@@ -24,7 +25,7 @@ var (
 	HighlightWords = flag.String("highlight-words", "", "Comma separated highlighted words")
 	Network        = flag.String("network", "", "Network to show in title of push notification")
 	IglooPushToken = flag.String("igloo-token", "", "Igloo IRC Push Token - Found in client settings")
-	log            = logger.CreateLogger(*Debug)
+	log            *zap.SugaredLogger
 	helper         *plugins.PluginHelper
 )
 
@@ -39,6 +40,7 @@ func main() {
 		log.Fatalf("Unable to load config: %s", err.Error())
 		return
 	}
+	log = logger.MustCreateLogger(*Debug)
 	helper, err = plugins.NewHelper(fmt.Sprintf("%s:%d", *RPCHost, uint16(*RPCPort)), *RPCToken)
 	if err != nil {
 		log.Fatalf("Unable to create plugin helper: %s", err.Error())
