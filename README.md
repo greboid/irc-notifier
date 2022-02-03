@@ -28,7 +28,7 @@ All of these settings are available as CLI flags, lowercase the settings and rep
 ```
 ---
 services:
-  bot-github:
+  bot-notifier:
     image: ghcr.io/greboid/irc-notifier
     environment:
       RPC_HOST: bot
