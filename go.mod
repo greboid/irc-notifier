@@ -7,7 +7,7 @@ require (
 	github.com/greboid/golog v1.0.3
 	github.com/greboid/irc-bot/v5 v5.0.5
 	github.com/kouhin/envflag v0.0.0-20150818174321-0e9a86061649
-	go.uber.org/zap v1.20.0
+	go.uber.org/zap v1.21.0
 )
 
 require (
