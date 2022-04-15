@@ -34,13 +34,13 @@ type HighlightHandler struct {
 }
 
 func main() {
+	log = logger.MustCreateLogger(*Debug)
 	log.Infof("Starting notifier plugin")
 	err := envflag.Parse()
 	if err != nil {
 		log.Fatalf("Unable to load config: %s", err.Error())
 		return
 	}
-	log = logger.MustCreateLogger(*Debug)
 	helper, err = plugins.NewHelper(fmt.Sprintf("%s:%d", *RPCHost, uint16(*RPCPort)), *RPCToken)
 	if err != nil {
 		log.Fatalf("Unable to create plugin helper: %s", err.Error())
