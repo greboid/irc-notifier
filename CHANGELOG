@@ -1,4 +1,9 @@
-v1.0.2
+v1.0.4
+Fix no highlights at all.
 
+v1.0.3
+Fix immediate NPE
+
+v1.0.2
 Fix highlights only matching lowercase mentionswq
 
