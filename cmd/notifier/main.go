@@ -61,16 +61,16 @@ func (h *HighlightHandler) handleChannelMessage(message *rpc.ChannelMessage) {
 	if checkHighlight(message, h.Highlights) {
 		nuh, err := ircmsg.ParseNUH(message.Source)
 		if err != nil {
-			sendNofication(*Network, message.Channel, message.Message, nuh.Name)
+			sendNotification(*Network, message.Channel, message.Message, nuh.Name)
 		}
 	}
 }
 
-func sendNofication(network, channel, messsage, sender string) {
+func sendNotification(network, channel, message, sender string) {
 	params := url.Values{}
 	params.Set("network", network)
 	params.Set("channel", channel)
-	params.Set("message", messsage)
+	params.Set("message", message)
 	params.Set("sender", sender)
 	params.Set("type", "")
 	params.Set("device1", *IglooPushToken)
