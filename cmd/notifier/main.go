@@ -61,6 +61,8 @@ func (h *HighlightHandler) handleChannelMessage(message *rpc.ChannelMessage) {
 	if checkHighlight(message, h.Highlights) {
 		nuh, err := ircmsg.ParseNUH(message.Source)
 		if err != nil {
+			log.Errorf("Unable to parse NUH: %s", err.Error())
+		} else {
 			sendNotification(*Network, message.Channel, message.Message, nuh.Name)
 		}
 	}
