@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/ergochat/irc-go/ircutils"
+	"github.com/ergochat/irc-go/ircmsg"
 	"github.com/greboid/golog"
 	"github.com/greboid/irc-bot/v5/plugins"
 	"github.com/greboid/irc-bot/v5/rpc"
@@ -59,7 +59,10 @@ func main() {
 
 func (h *HighlightHandler) handleChannelMessage(message *rpc.ChannelMessage) {
 	if checkHighlight(message, h.Highlights) {
-		sendNofication(*Network, message.Channel, message.Message, ircutils.ParseUserhost(message.Source).Nick)
+		nuh, err := ircmsg.ParseNUH(message.Source)
+		if err != nil {
+			sendNofication(*Network, message.Channel, message.Message, nuh.Name)
+		}
 	}
 }
 
