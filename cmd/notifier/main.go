@@ -10,7 +10,7 @@ import (
 	"strings"
 
 	"github.com/ergochat/irc-go/ircmsg"
-	"github.com/greboid/golog"
+	logger "github.com/greboid/golog"
 	"github.com/greboid/irc-bot/v5/plugins"
 	"github.com/greboid/irc-bot/v5/rpc"
 	"github.com/kouhin/envflag"
@@ -34,13 +34,13 @@ type HighlightHandler struct {
 }
 
 func main() {
-	log = logger.MustCreateLogger(*Debug)
-	log.Infof("Starting notifier plugin")
 	err := envflag.Parse()
 	if err != nil {
 		log.Fatalf("Unable to load config: %s", err.Error())
 		return
 	}
+	log = logger.MustCreateLogger(*Debug)
+	log.Infof("Starting notifier plugin")
 	helper, err = plugins.NewHelper(fmt.Sprintf("%s:%d", *RPCHost, uint16(*RPCPort)), *RPCToken)
 	if err != nil {
 		log.Fatalf("Unable to create plugin helper: %s", err.Error())
