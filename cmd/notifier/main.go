@@ -99,7 +99,7 @@ func sendNofication(network, channel, messsage, sender string) {
 
 func checkHighlight(message *rpc.ChannelMessage, highlights []string) bool {
 	for index := range highlights {
-		if strings.Contains(message.Message, highlights[index]) {
+		if strings.Contains(strings.ToLower(message.Message), highlights[index]) {
 			return true
 		}
 	}
