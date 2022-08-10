@@ -7,7 +7,7 @@ require (
 	github.com/greboid/golog v1.0.3
 	github.com/greboid/irc-bot/v5 v5.0.6
 	github.com/kouhin/envflag v0.0.0-20150818174321-0e9a86061649
-	go.uber.org/zap v1.21.0
+	go.uber.org/zap v1.22.0
 )
 
 require (
@@ -23,5 +23,4 @@ require (
 	google.golang.org/genproto v0.0.0-20220414192740-2d67ff6cf2b4 // indirect
 	google.golang.org/grpc v1.45.0 // indirect
 	google.golang.org/protobuf v1.28.0 // indirect
-	gopkg.in/yaml.v2 v2.3.0 // indirect
 )
