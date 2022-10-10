@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/ergochat/irc-go v0.2.0
-	github.com/greboid/golog v1.0.3
+	github.com/greboid/golog v1.0.4
 	github.com/greboid/irc-bot/v5 v5.0.6
 	github.com/kouhin/envflag v0.0.0-20150818174321-0e9a86061649
 	go.uber.org/zap v1.23.0
@@ -14,7 +14,7 @@ require (
 	cloud.google.com/go v0.63.0 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0 // indirect
-	go.uber.org/atomic v1.9.0 // indirect
+	go.uber.org/atomic v1.10.0 // indirect
 	go.uber.org/multierr v1.8.0 // indirect
 	golang.org/x/net v0.0.0-20220412020605-290c469a71a5 // indirect
 	golang.org/x/sys v0.0.0-20220412211240-33da011f77ad // indirect
