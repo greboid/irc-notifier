@@ -1,6 +1,6 @@
 module irc-notifier
 
-go 1.18
+go 1.20
 
 require (
 	github.com/ergochat/irc-go v0.3.0
