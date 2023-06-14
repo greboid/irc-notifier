@@ -3,7 +3,7 @@ module irc-notifier
 go 1.20
 
 require (
-	github.com/ergochat/irc-go v0.3.0
+	github.com/ergochat/irc-go v0.4.0
 	github.com/greboid/golog v1.0.4
 	github.com/greboid/irc-bot/v5 v5.0.6
 	github.com/kouhin/envflag v0.0.0-20150818174321-0e9a86061649
@@ -11,7 +11,6 @@ require (
 )
 
 require (
-	cloud.google.com/go v0.107.0 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0 // indirect
 	go.uber.org/atomic v1.10.0 // indirect
