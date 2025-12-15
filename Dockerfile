@@ -6,7 +6,7 @@ RUN set -eux; \
     CGO_ENABLED=0 GOOS=linux go build -a -ldflags '-extldflags "-static"' -trimpath -ldflags=-buildid= -o main ./cmd/notifier; \
      go run github.com/google/go-licenses@latest save ./... --save_path=/notices;
 
-FROM ghcr.io/greboid/dockerbase/nonroot:1.20251204.0
+FROM ghcr.io/greboid/dockerbase/nonroot:1.20251213.0
 
 COPY --from=builder /app/main /irc-notifier
 COPY --from=builder /notices /notices
