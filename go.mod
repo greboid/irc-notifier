@@ -3,7 +3,7 @@ module irc-notifier
 go 1.25.0
 
 require (
-	github.com/ergochat/irc-go v0.6.0
+	github.com/ergochat/irc-go v0.7.0
 	github.com/greboid/golog v1.0.4
 	github.com/greboid/irc-bot/v5 v5.0.8
 	github.com/kouhin/envflag v0.0.0-20150818174321-0e9a86061649
